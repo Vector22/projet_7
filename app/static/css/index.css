@@ -1,0 +1,23 @@
+#map {
+	height: 400px;
+	width: 350px;
+}
+
+/* Optional: Makes the sample page fill the window. */
+html, body {
+	height: 100%;
+	margin: 10px;
+	padding-top: 10px;
+}
+
+[class*="col-"], footer {
+	background-color: ;
+	border-radius: 6px;
+	text-align: center;
+	padding: 5px;
+
+}
+
+form {
+	padding-top: 30px;
+}
