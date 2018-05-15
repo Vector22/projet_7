@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>{{ title }} - GrandPy</title>
+
+    </head>
+
+    <link rel="stylesheet" type="text/css"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css"
+    href="{{ url_for('static', filename='css/index.css') }}">
+
+    <body>
+        <h1>Hello, {{ user.name }}!</h1>
+
+        <section class="container">
+			
+			<div class="row">
+	        	<div id="conversation" class="col-lg-8 col-lg-offset-4">
+	        		
+	        	</div><hr>
+	        </div>
+            
+            <div class="row">
+	        	<div id="formDiv" class="col-lg-6 col-lg-offset-1">
+	        		<form action="/index" method="post">
+	        			<h2>Please ask your question to GrandPy </h2>
+	             		<p><input type="text" name="text" id="text" required autofocus size="50"></p>
+	 
+	             		<p><button type="button" name="submit" id="submit">Envoie </button></p>
+	        		</form>
+	        	</div>
+
+	        	<div id="map" class="col-lg-5">
+        		
+        		</div>
+	        </div>
+
+        	<div id="history" class="row">
+        		<h3 id="history_title"></h3>
+        		<div id="history_content" class="col-lg-offset-1 col-lg-10 col-lg-offset-1">
+        			
+        		</div>
+        	</div>
+
+        </section>
+
+        <script
+			  src="https://code.jquery.com/jquery-1.12.4.min.js"
+			  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+			  crossorigin="anonymous">
+		</script>
+		<script type="text/javascript"
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key= AIzaSyBZhCNLYIjCGCO7c67aZMeJuWpSo4-pIjM&libraries=places"
+    	async defer></script>        
+        <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+        
+    </body>
+</html>
