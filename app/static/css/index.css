@@ -9,6 +9,9 @@ html, body {
 	margin: 10px;
 	padding-top: 10px;
 }
+body {
+	background-color: rgb(230, 230, 250);
+}
 
 [class*="col-"], footer {
 	background-color: ;
@@ -18,6 +21,36 @@ html, body {
 
 }
 
+.question{
+	border-radius: 8px;
+	background-color: rgba(140, 189, 204, 0.6);
+	text-align: left;
+	display: inline-block;
+}
+.reponse {
+	border-radius: 8px;
+	background-color: rgba(143, 196, 98, 0.6);
+	text-align: right;
+	display: inline-block;
+}
+
 form {
 	padding-top: 30px;
+}
+h1 {
+	text-align: center;
+	color: rgb(20, 76, 127);
+}
+
+h1{
+  font-size: 40px;
+  transition-property: font-size;
+  transition-duration: 4s;
+  transition-delay: 2s;
+  transition-timing-function: cubic-bezier(1.000, -0.530, 0.405, 1.425);
+}
+
+h1:hover {
+  font-size: 72px;
+  color: green;
 }

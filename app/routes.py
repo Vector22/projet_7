@@ -1,8 +1,8 @@
-from flask import render_template, jsonify, request
+from flask import render_template, request
 
 from app import app
 from app.stop_words import stopWords
-from app.localize import geolocalize, history
+from app.localizze import geolocalize, history
 import json
 
 
@@ -21,20 +21,11 @@ def localize():
     return json.dumps({'info': geolocalize(address)})
 
 
-@app.route('/tell_history/<location>', methods=['GET', 'POST'])
-def tell_history(location):
-    return json.dumps({'history': history(str(location))})
+@app.route('/tell_history/<lat>:<lng>', methods=['GET', 'POST'])
+def tell_history(lat, lng):
+    return json.dumps({'history': history(lat, lng)})
 
 
 @app.route('/index/')
 def index():
-    user = {'name': 'vector22'}
-    return render_template('index.html', title='Home', user=user)
-
-
-"""@app.after_request
-def add_headers(response):
-    response.headers.add('Access-Control-Allow-Origin', '*')
-    response.headers.add('Access-Control-Allow-Headers',
-                         'Content-Type,Authorization')
-    return response"""
+    return render_template('index.html', title='Home')
