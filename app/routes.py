@@ -2,7 +2,7 @@ from flask import render_template, request
 
 from app import app
 from app.stop_words import stopWords
-from app.localizze import geolocalize, history
+from app.localizze import Geolocalize, History
 import json
 
 
@@ -18,14 +18,15 @@ def localize():
         else:
             pertinentWord.append(word)
     address += " ".join(pertinentWord)
-    return json.dumps({'info': geolocalize(address)})
+    return json.dumps({'info': Geolocalize(address).geolocalize()})
 
 
 @app.route('/tell_history/<lat>:<lng>', methods=['GET', 'POST'])
 def tell_history(lat, lng):
-    return json.dumps({'history': history(lat, lng)})
+    return json.dumps({'history': History(lat, lng).history()})
 
 
+@app.route('/')
 @app.route('/index/')
 def index():
     return render_template('index.html', title='Home')

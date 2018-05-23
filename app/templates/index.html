@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>{{ title }} - GrandPy</title>
 
@@ -19,46 +19,46 @@
         <h1>GrandPy le papy robot</h1>
 
         <section class="container">
+			
+			<div class="row">
+	        	<div id="conversation" class="col-md-12 col-sm-12 col-xs-12">
+	        		
+	        	</div><hr>
+	        </div>
             
             <div class="row">
-                <div id="conversation" class="col-md-12 col-sm-12 col-xs-12">
-                    
-                </div><hr>
-            </div>
-            
-            <div class="row">
-                <div id="formDiv" class="col-md-6 col-sm-12 col-xs-12">
-                    <form action="/index" method="post">
-                        <h3>Veuillez pauser votre question à GrandPy </h3>
-                        <p><input type="text" name="text" id="text" required autofocus size="30"></p>
-     
-                        <p><button type="button" name="submit" id="submit">Envoie </button></p>
-                    </form>
-                </div>
+	        	<div id="formDiv" class="col-md-6 col-sm-12 col-xs-12">
+	        		<form action="/index" method="post">
+	        			<h3>Veuillez pauser votre question à GrandPy </h3>
+	             		<p><input type="text" name="text" id="text" required autofocus size="30"></p>
+	 
+	             		<p><button type="button" name="submit" id="submit">Envoie </button></p>
+	        		</form>
+	        	</div>
 
-                <div id="map" class="col-md-6 col-sm-12 col-xs-12">
-                
-                </div>
-            </div>
+	        	<div id="map" class="col-md-6 col-sm-12 col-xs-12">
+        		
+        		</div>
+	        </div>
 
-            <div id="history" class="row">
-                <h3 id="history_title"></h3>
-                <div id="history_content" class="col-lg-offset-1 col-lg-10 col-lg-offset-1">
-                    
-                </div>
-            </div>
+        	<div id="history" class="row">
+        		<h3 id="history_title"></h3>
+        		<div id="history_content" class="col-lg-offset-1 col-lg-10 col-lg-offset-1">
+        			
+        		</div>
+        	</div>
 
         </section>
 
         <script
-              src="https://code.jquery.com/jquery-1.12.4.min.js"
-              integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
-              crossorigin="anonymous">
-        </script>
-        <script type="text/javascript"
-        src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key= AIzaSyBZhCNLYIjCGCO7c67aZMeJuWpSo4-pIjM&libraries=places"
-        async defer></script>        
+			  src="https://code.jquery.com/jquery-1.12.4.min.js"
+			  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+			  crossorigin="anonymous">
+		</script>
+		<script type="text/javascript"
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHbRPqqVXxABPfWWO5guP9DwCu_FHU6qg&libraries=places"
+    	async defer></script>        
         <script src="{{ url_for('static', filename='js/index.js') }}"></script>
         
     </body>

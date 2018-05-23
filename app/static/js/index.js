@@ -1,8 +1,8 @@
 
 $(function () {
 
-  function appelAjax(f) {
-    $.ajax({
+	function appelAjax(f) {
+		$.ajax({
             url: '/localize',
             data: $('form').serialize(),
             type: 'POST',
@@ -11,28 +11,28 @@ $(function () {
                 console.log(error);
             }
         });
-  }
+	}
 
-  function retourServeur(reponse) {
-    // print the loading image
-    $('#map').html('<img src="loading.gif">');
-    r = JSON.parse(reponse);
+	function retourServeur(reponse) {
+		// print the loading image
+		$('#map').html('<img src="loading.gif">');
+		r = JSON.parse(reponse);
 
-    longitude = r.info.results[0].geometry.location.lng;
-    latitude = r.info.results[0].geometry.location.lat;
-    address = r.info.results[0].formatted_address;
+		longitude = r.info.results[0].geometry.location.lng;
+		latitude = r.info.results[0].geometry.location.lat;
+		address = r.info.results[0].formatted_address;
 
-    // update the conversation section
-    var question = document.createElement('p');
-    question.innerHTML =  '<p class="question">Moi : ' + $('input').val() + '</p></br>';
-    question.innerHTML += '<p class="reponse">GrandPy : Bien sure que Oui !' + address + '</p></br></br>';
+		// update the conversation section
+		var question = document.createElement('p');
+		question.innerHTML =  '<p class="question">Moi : ' + $('input').val() + '</p></br>';
+		question.innerHTML += '<p class="reponse">GrandPy : Bien sure que Oui !' + address + '</p></br></br>';
 
-    $('#conversation').append(question);
-    console.log(latitude);
-    console.log(longitude);
-    console.log(address);
-    // Initialisons une carte dans la balise ayant l'id map
-    map = new google.maps.Map(document.getElementById("map"), {
+		$('#conversation').append(question);
+		console.log(latitude);
+		console.log(longitude);
+		console.log(address);
+		// Initialisons une carte dans la balise ayant l'id map
+		map = new google.maps.Map(document.getElementById("map"), {
           // Nous plaçons le centre de la carte avec les coordonnées ci-dessus
           center: new google.maps.LatLng(latitude, longitude),
           // Nous définissons le zoom par défaut
@@ -69,33 +69,33 @@ $(function () {
         console.log(host_url);
 
         $.ajax({
-          type: 'GET',
-          url: host_url,
-          success: function(data) {
-            var data = JSON.parse(data);
-            var title = data.history.title;
-            var description = data.history.description;
-            var state = data.history.state;
+        	type: 'GET',
+        	url: host_url,
+        	success: function(data) {
+        		var data = JSON.parse(data);
+		        var title = data.history.title;
+		        var description = data.history.description;
+		        var state = data.history.state;
 
-            // add them to the web page if success
-            if (state) {
-              $('#history_title').html("Une histoire sur " + title);
-              $('#history_content').html(description);
-            }
-            else { // add a generic description
-              $('#history_title').html(title);
-              $('#history_content').html(description);
-            }
-          },
-          error: function(error) {
-            console.log(error);
-          }
-      });
-  }
+		        // add them to the web page if success
+		        if (state) {
+		        	$('#history_title').html("Une histoire sur " + title);
+		        	$('#history_content').html(description);
+		        }
+		        else { // add a generic description
+		        	$('#history_title').html(title);
+		        	$('#history_content').html(description);
+		        }
+        	},
+        	error: function(error) {
+        		console.log(error);
+        	}
+    	});
+	}
 
-  $('button').click(function(e) {
-    e.preventDefault();
-    appelAjax(retourServeur);
-  });
+	$('button').click(function(e) {
+		e.preventDefault();
+		appelAjax(retourServeur);
+	});
 
 });
