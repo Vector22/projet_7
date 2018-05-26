@@ -19,8 +19,8 @@ class Geolocalize():
 
         #do the request
         r = requests.get(url)
-        #if r.status_code != 200:
-        #    return ('Error: the geolocalisation service failed.')
+        if r.status_code != 200:
+            return ('Error: the geolocalisation service failed.')
         return json.loads(r.content.decode('utf-8-sig'))
 
 

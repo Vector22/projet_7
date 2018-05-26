@@ -15,7 +15,7 @@ $(function () {
 
 	function retourServeur(reponse) {
 		// print the loading image
-		$('#map').html('<img src="loading.gif">');
+		$('#map').html('<img src="../images/loading.gif">');
 		r = JSON.parse(reponse);
 
 		longitude = r.info.results[0].geometry.location.lng;
@@ -93,7 +93,7 @@ $(function () {
     	});
 	}
 
-	$('button').click(function(e) {
+	$('#submit').click(function(e) {
 		e.preventDefault();
 		appelAjax(retourServeur);
 	});

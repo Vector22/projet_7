@@ -69,7 +69,8 @@ class TestRoutes(unittest.TestCase):
         self.assertEqual(rv.status_code, 200)
 
     def test_localize_page_works(self):
-        rv = self.app.post("localize")
+        rv = self.app.post('/localize',
+                           data=dict(address='Abidjan'))
         self.assertTrue(rv.data)
         self.assertEqual(rv.status_code, 301)  # 301 redirection
 

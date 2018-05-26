@@ -6,7 +6,7 @@ from app.localizze import Geolocalize, History
 import json
 
 
-@app.route('/localize', methods=['POST'])
+@app.route('/localize/', methods=['POST', 'GET'])
 def localize():
 
     address = ""

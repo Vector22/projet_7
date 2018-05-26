@@ -12,6 +12,7 @@
 
     <link rel="stylesheet" type="text/css"
         href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css"
     href="{{ url_for('static', filename='css/index.css') }}">
 
@@ -32,7 +33,7 @@
 	        			<h3>Veuillez pauser votre question à GrandPy </h3>
 	             		<p><input type="text" name="text" id="text" required autofocus size="30"></p>
 	 
-	             		<p><button type="button" name="submit" id="submit">Envoie </button></p>
+	             		<p><button type="button" name="submit" id="submit" class="btn btn-primary"><span class="glyphicons glyphicons-ok"></span>Envoie </button></p>
 	        		</form>
 	        	</div>
 
@@ -49,6 +50,17 @@
         	</div>
 
         </section>
+
+        <footer>
+            <p>Vous pouvez me suivre sur :</p>
+           
+            <div>
+                <a href="https://github.com/Vector22"><span class="fab fa-github fa-4x"></span></a>
+                <a href="https://linkedin.com/in/ulrich-yakoun-5a0556148"><span class="fab fa-linkedin fa-4x"></span></a>
+                <a href="https://twitter.com/r3k1n22"><span class="fab fa-twitter-square fa-4x"></span></a>
+                    
+            </div>
+        </footer>
 
         <script
 			  src="https://code.jquery.com/jquery-1.12.4.min.js"
