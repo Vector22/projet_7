@@ -31,39 +31,39 @@ $(function () {
 		console.log(latitude);
 		console.log(longitude);
 		console.log(address);
-		// Initialisons une carte dans la balise ayant l'id map
+		// Initialize a map in the tag having the id map
 		map = new google.maps.Map(document.getElementById("map"), {
-          // Nous plaçons le centre de la carte avec les coordonnées ci-dessus
+          // We place the center of the map with the coordinates above
           center: new google.maps.LatLng(latitude, longitude),
-          // Nous définissons le zoom par défaut
+          // We set the default zoom
           zoom: 10, 
-          // Nous définissons le type de carte (ici carte routière)
+          // We define the type of map (here road map)
           mapTypeId: google.maps.MapTypeId.ROADMAP, 
-          // Nous activons les options de contrôle de la carte (plan, satellite...)
+          // We activate the control options of the map (plan, satellite ...)
           mapTypeControl: true,
-          // Nous désactivons la roulette de souris
+          // We disable the mouse wheel
           scrollwheel: false, 
           mapTypeControlOptions: {
-            // Cette option sert à définir comment les options se placent
+            // This option is used to define how the options are placed
             style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR 
           },
-          // Activation des options de navigation dans la carte (zoom...)
+          // Activate navigation options in the map (zoom ...)
           navigationControl: true, 
           navigationControlOptions: {
-            // Comment ces options doivent-elles s'afficher
+            // How should these options appear?
             style: google.maps.NavigationControlStyle.ZOOM_PAN 
           }
         });
-        // Nous ajoutons un marqueur
+        // We add a marker
         var marker = new google.maps.Marker({
-          // Nous définissons sa position (syntaxe json)
+          // We define its position (json syntax)
           position: {lat: latitude, lng: longitude},
-          // Nous définissons à quelle carte il est ajouté
+          // We define which map it is added to
           map: map
         });
 
-        // Faisons une autre requete ajax pour recuperer les infos de
-        // l'api media wiki retournees par le serveur
+        // Let's make another ajax request to retrieve the info from
+        // the media wiki API returned by the server
         
         host_url = '/tell_history/' + String(latitude) + ':' + String(longitude);
         console.log(host_url);
@@ -93,9 +93,14 @@ $(function () {
     	});
 	}
 
-	$('#submit').click(function(e) {
-		e.preventDefault();
-		appelAjax(retourServeur);
-	});
+	//pressing the send button to validate
+  $('#submit').click(function() {
+    appelAjax(retourServeur);
+  });
+  //Validate without press the send button
+  $('#mainForm').submit(function(e) {
+    e.preventDefault();
+    appelAjax(retourServeur);
+  });
 
 });
